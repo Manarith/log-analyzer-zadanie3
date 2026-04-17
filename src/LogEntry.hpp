@@ -7,6 +7,6 @@ struct logEntry {
 	std::chrono::system_clock::time_point timestamp;
 	std::string logLevel;
 	std::string source;
-	std::string Message;
+	std::string message;
 };
 #endif
