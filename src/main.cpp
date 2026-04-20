@@ -1,13 +1,16 @@
-#include "parser.hpp"
+#include "Parser.hpp"
+#include "Query.hpp"
 #include <iostream>
-#include <string>
 
 int main() {
-	const std::string filename = "data/logs.txt";
+    auto logs = loadLogs("logs.txt");
 
-	auto logs = loadLogs(filename);
+    auto query = bySource("AuthService");
+    auto results = filterLogs(logs, query);
 
+    for (const auto& log : results) {
+        std::cout << log.source << " - " << log.message << std::endl;
+    }
 
-	std::cout << "dziala";
-	return 0;
+    return 0;
 }
