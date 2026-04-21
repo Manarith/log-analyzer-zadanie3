@@ -25,18 +25,31 @@ void printLog(const logEntry& log) {
 //
 
 int main() {
-    std::string filename = "data/logs.txt";
+    std::string filename = "logs.txt";
     std::cout << "Loading logs from: " << filename << "\n";
 
     auto logs = loadLogs(filename);
     std::cout << "Loaded logs: " << logs.size() << "\n\n";
 
-    //przykładowe zapytanie
-    std::cout << "Example input\n";
+    //przykładowe zapytania
     std::cout << "Filtering: source = AuthService\n\n";
 
     auto query = bySource("AuthService");
     auto results = filterLogs(logs, query);
+
+    std::cout << "Found: " << results.size() << " matching logs\n\n";
+
+    for (const auto& log : results) {
+        printLog(log);
+    }
+
+    if (results.empty()) {
+        std::cout << "No results found.\n";
+    }
+
+    std::cout << "Filtering: message = 'Transaction'\n\n";
+    query = byMessageContains("Transaction");
+    results = filterLogs(logs, query);
 
     std::cout << "Found: " << results.size() << " matching logs\n\n";
 
