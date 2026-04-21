@@ -11,19 +11,26 @@
 
 ### Kroki
 
-1. Otwórz:
+1. Otwórz: 
+
 Developer Command Prompt for VS
 
 2. Przejdź do katalogu projektu:
+
 cd ścieżka\do\projektu
 
 3. Pobierz zależności:
+
 conan profile detect --force
+
 conan install . --output-folder=build --build=missing
 
 4. Zbuduj projekt:
+
 cd build
+
 cmake .. -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake
+
 cmake --build . --config Release
 
 ---
