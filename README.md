@@ -41,9 +41,3 @@ cd build\Release
 main.exe
 
 Upewnij się, że plik `logs.txt` znajduje się w tym samym katalogu.
-
----
-
-### Uruchomienie testów
-
-ctest -C Release
