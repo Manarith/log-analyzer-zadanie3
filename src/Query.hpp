@@ -5,7 +5,7 @@
 #include <functional>
 #include <vector>
 
-using LogFilter = std::function<bool(const LogEntry&)>;
+using LogFilter = std::function<bool(const logEntry&)>;
 
 LogFilter bySource(const std::string& src);
 LogFilter byLevel(const std::string& lvl);
@@ -15,5 +15,5 @@ LogFilter byTimeRange(std::chrono::system_clock::time_point from,
 
 LogFilter andFilter(LogFilter a, LogFilter b);
 
-std::vector<LogEntry> filterLogs(const std::vector<LogEntry>& logs, LogFilter filter);
+std::vector<logEntry> filterLogs(const std::vector<logEntry>& logs, LogFilter filter);
 #endif
